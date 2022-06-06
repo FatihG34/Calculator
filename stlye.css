@@ -10,9 +10,9 @@ body {
 
 div.container {
     padding: 1.25rem;
-    margin: 3rem auto;
+    margin: 2rem auto;
     width: 31.25rem;
-    height: 89vh;
+    height: 55rem;
     display: grid;
     background-color: black;
     grid-template-columns: repeat(1, 1fr);
@@ -22,15 +22,35 @@ div.container {
 
 }
 
-.ekran {
+.screen {
     grid-column: span 30;
     width: 28.75rem;
-    height: 15.625rem;
+    height: 18rem;
+    background-color: #414040;
+    border-radius: 0.75rem;
+    margin-top: 1.8rem;
+    color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: flex-end;
+}
+
+.upside {
+    height: 50%;
+    border-radius: 0.75rem 0.75rem 0 0;
+    vertical-align: middle;
+}
+
+.downside {
+    height: 50%;
+    border-radius: 0 0 0.75rem 0.75rem;
+    font-size: 3rem;
 }
 
 .buttons {
     display: grid;
-    height: 33.75rem;
+    height: 32rem;
     width: 27.5rem;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(10, 1fr);
@@ -46,6 +66,8 @@ div.container {
     border-radius: 50%;
     justify-content: center;
     align-items: center;
+    font-size: 2rem;
+    color: white;
 
 }
 
