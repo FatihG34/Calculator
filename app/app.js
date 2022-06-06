@@ -14,19 +14,28 @@ buttons.addEventListener("click", (e) => {
         screenUpside.innerHTML = "";
         console.log("what is this");
     } else if (e.target.classList.contains("changer")) {
+        screenDownside.innerHTML = -screenDownside.innerHTML;
         console.log("this  +-");
     } else if (e.target.classList.contains("percent")) {
         console.log("this %");
     } else if (e.target.classList.contains("division")) {
         console.log("this /");
     } else if (e.target.classList.contains("seven")) {
-        screenDownside.innerHTML += 7;
-        console.log("this 7");
+        if (!screenDownside.innerHTML) {
+            console.log(e.target);
+            screenDownside.innerHTML += e.target.innerHTML;
+            console.log("this 7");
+            console.log(screenDownside.innerHTML);
+        } else {
+            screenUpside.innerHTML += 7
+        }
+
     } else if (e.target.classList.contains("eight")) {
         screenDownside.innerHTML += 8;
         console.log("this is 8");
     } else if (e.target.classList.contains("nine")) {
         screenDownside.innerHTML += 9;
+        screenDownside.innerHTML = screenUpside.innerHTML
         console.log("this is 9");
     } else if (e.target.classList.contains("multiply")) {
         screenDownside.innerHTML += "x";
