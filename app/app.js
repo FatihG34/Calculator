@@ -1,77 +1,50 @@
 const buttons = document.querySelector(".buttons");
-console.log(buttons);
-const screen = document.querySelector(".screen");
-console.log(screen);
 const screenUpside = document.querySelector(".upside");
-console.log(screenUpside);
 const screenDownside = document.querySelector(".downside")
-console.log(screenDownside);
 
 buttons.addEventListener("click", (e) => {
     // console.log(e.target);
     if (e.target.classList.contains("AC")) {
         screenDownside.innerHTML = "";
         screenUpside.innerHTML = "";
-        console.log("what is this");
-    } else if (e.target.classList.contains("changer")) {
-        screenDownside.innerHTML = -screenDownside.innerHTML;
-        console.log("this  +-");
-    } else if (e.target.classList.contains("percent")) {
-        console.log("this %");
-    } else if (e.target.classList.contains("division")) {
-        console.log("this /");
-    } else if (e.target.classList.contains("seven")) {
-        if (!screenDownside.innerHTML) {
-            console.log(e.target);
-            screenDownside.innerHTML += e.target.innerHTML;
-            console.log("this 7");
-            console.log(screenDownside.innerHTML);
-        } else {
-            screenUpside.innerHTML += 7
-        }
 
-    } else if (e.target.classList.contains("eight")) {
-        screenDownside.innerHTML += 8;
-        console.log("this is 8");
-    } else if (e.target.classList.contains("nine")) {
-        screenDownside.innerHTML += 9;
-        screenDownside.innerHTML = screenUpside.innerHTML
-        console.log("this is 9");
-    } else if (e.target.classList.contains("multiply")) {
-        screenDownside.innerHTML += "x";
-        console.log("this is *");
-    } else if (e.target.classList.contains("four")) {
-        screenDownside.innerHTML += 4;
-        console.log("this is 4");
-    } else if (e.target.classList.contains("five")) {
-        screenDownside.innerHTML += 5;
-        console.log("this is 5");
-    } else if (e.target.classList.contains("six")) {
-        screenDownside.innerHTML += 6;
-        console.log("this is 6");
-    } else if (e.target.classList.contains("minus")) {
-        screenDownside.innerHTML += "-";
-        console.log("this is 1");
-    } else if (e.target.classList.contains("one")) {
-        screenDownside.innerHTML += 1;
-        console.log("this is 2");
-    } else if (e.target.classList.contains("two")) {
-        screenDownside.innerHTML += 2;
-        console.log("this is 2");
-    } else if (e.target.classList.contains("three")) {
-        screenDownside.innerHTML += 3;
-        console.log("this is 3");
-    } else if (e.target.classList.contains("plus")) {
-        screenDownside.innerHTML += "+";
-        console.log("this is +");
-    } else if (e.target.classList.contains("zero")) {
-        screenDownside.innerHTML += 0;
-        console.log("this is 0");
-    } else if (e.target.classList.contains("dot")) {
-        screenDownside.innerHTML += ".";
-        console.log("this is .");
+    } else if (e.target.classList.contains("changer")) {
+        if (!screenDownside.innerHTML) {
+            screenDownside.innerHTML = "";
+        } else {
+            screenDownside.innerHTML = -screenDownside.innerHTML;
+        }
+    } else if (e.target.classList.contains("percent")) {
+        if (!screenDownside.innerHTML) {
+            screenDownside.innerHTML = "";
+        } else {
+            screenDownside.innerHTML = screenDownside.innerHTML / 100;
+        }
+    } else if (e.target.classList.contains("operations")) {
+        screenUpside.innerHTML = screenDownside.innerHTML + " " + e.target.innerHTML;
+        screenDownside.innerHTML = "";
+
+    } else if (e.target.classList.contains("num")) {
+        screenDownside.innerHTML += e.target.innerHTML;
+
     } else if (e.target.classList.contains("equal")) {
-        screenDownside.innerHTML = "=";
-        console.log("this is =");
+        equal();
     }
 });
+
+
+
+function equal() {
+    if (screenUpside.innerHTML.slice(-1) == "÷") {
+        screenDownside.innerHTML = (screenUpside.innerHTML.slice(0, -1) / screenDownside.innerHTML).toFixed(4);
+    }
+    else if (screenUpside.innerHTML.slice(-1) == "x") {
+        screenDownside.innerHTML = (screenUpside.innerHTML.slice(0, -1) * screenDownside.innerHTML).toFixed(4);
+    }
+    else if (screenUpside.innerHTML.slice(-1) == "-") {
+        screenDownside.innerHTML = (screenUpside.innerHTML.slice(0, -1) - screenDownside.innerHTML).toFixed(4);
+    }
+    else if (screenUpside.innerHTML.slice(-1) == "+") {
+        screenDownside.innerHTML = (Number(screenUpside.innerHTML.slice(0, -1)) + Number(screenDownside.innerHTML)).toFixed(4);
+    }
+}
