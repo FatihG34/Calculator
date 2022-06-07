@@ -32,7 +32,7 @@ div.container {
     color: antiquewhite;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
+    font-size: 3rem;
     align-items: flex-end;
 }
 
@@ -45,7 +45,6 @@ div.container {
 .downside {
     height: 50%;
     border-radius: 0 0 0.75rem 0.75rem;
-    font-size: 3rem;
 }
 
 .buttons {
