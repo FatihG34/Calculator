@@ -21,9 +21,12 @@ buttons.addEventListener("click", (e) => {
             screenDownside.innerHTML = screenDownside.innerHTML / 100;
         }
     } else if (e.target.classList.contains("operations")) {
-        screenUpside.innerHTML = screenDownside.innerHTML + " " + e.target.innerHTML;
-        screenDownside.innerHTML = "";
-
+        if (!screenDownside.innerHTML) {
+            screenDownside.innerHTML = "";
+        } else {
+            screenUpside.innerHTML = screenDownside.innerHTML + " " + e.target.innerHTML;
+            screenDownside.innerHTML = "";
+        }
     } else if (e.target.classList.contains("num")) {
         screenDownside.innerHTML += e.target.innerHTML;
 
@@ -36,15 +39,15 @@ buttons.addEventListener("click", (e) => {
 
 function equal() {
     if (screenUpside.innerHTML.slice(-1) == "÷") {
-        screenDownside.innerHTML = (screenUpside.innerHTML.slice(0, -1) / screenDownside.innerHTML).toFixed(4);
+        screenDownside.innerHTML = (screenUpside.innerHTML.slice(0, -1) / screenDownside.innerHTML).toFixed(2);
     }
     else if (screenUpside.innerHTML.slice(-1) == "x") {
-        screenDownside.innerHTML = (screenUpside.innerHTML.slice(0, -1) * screenDownside.innerHTML).toFixed(4);
+        screenDownside.innerHTML = (screenUpside.innerHTML.slice(0, -1) * screenDownside.innerHTML).toFixed(2);
     }
     else if (screenUpside.innerHTML.slice(-1) == "-") {
-        screenDownside.innerHTML = (screenUpside.innerHTML.slice(0, -1) - screenDownside.innerHTML).toFixed(4);
+        screenDownside.innerHTML = (screenUpside.innerHTML.slice(0, -1) - screenDownside.innerHTML).toFixed(2);
     }
     else if (screenUpside.innerHTML.slice(-1) == "+") {
-        screenDownside.innerHTML = (Number(screenUpside.innerHTML.slice(0, -1)) + Number(screenDownside.innerHTML)).toFixed(4);
+        screenDownside.innerHTML = (Number(screenUpside.innerHTML.slice(0, -1)) + Number(screenDownside.innerHTML)).toFixed(2);
     }
 }
