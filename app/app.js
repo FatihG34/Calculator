@@ -40,14 +40,18 @@ buttons.addEventListener("click", (e) => {
 function equal() {
     if (screenUpside.innerHTML.slice(-1) == "÷") {
         screenDownside.innerHTML = (screenUpside.innerHTML.slice(0, -1) / screenDownside.innerHTML).toFixed(2);
+        screenUpside.innerHTML = "";
     }
     else if (screenUpside.innerHTML.slice(-1) == "x") {
         screenDownside.innerHTML = (screenUpside.innerHTML.slice(0, -1) * screenDownside.innerHTML).toFixed(2);
+        screenUpside.innerHTML = "";
     }
     else if (screenUpside.innerHTML.slice(-1) == "-") {
         screenDownside.innerHTML = screenUpside.innerHTML.slice(0, -1) - screenDownside.innerHTML;
+        screenUpside.innerHTML = "";
     }
     else if (screenUpside.innerHTML.slice(-1) == "+") {
         screenDownside.innerHTML = Number(screenUpside.innerHTML.slice(0, -1)) + Number(screenDownside.innerHTML);
+        screenUpside.innerHTML = "";
     }
 }
