@@ -45,9 +45,9 @@ function equal() {
         screenDownside.innerHTML = (screenUpside.innerHTML.slice(0, -1) * screenDownside.innerHTML).toFixed(2);
     }
     else if (screenUpside.innerHTML.slice(-1) == "-") {
-        screenDownside.innerHTML = (screenUpside.innerHTML.slice(0, -1) - screenDownside.innerHTML).toFixed(2);
+        screenDownside.innerHTML = screenUpside.innerHTML.slice(0, -1) - screenDownside.innerHTML;
     }
     else if (screenUpside.innerHTML.slice(-1) == "+") {
-        screenDownside.innerHTML = (Number(screenUpside.innerHTML.slice(0, -1)) + Number(screenDownside.innerHTML)).toFixed(2);
+        screenDownside.innerHTML = Number(screenUpside.innerHTML.slice(0, -1)) + Number(screenDownside.innerHTML);
     }
 }
