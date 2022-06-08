@@ -24,12 +24,24 @@ buttons.addEventListener("click", (e) => {
         if (!screenDownside.innerHTML) {
             screenDownside.innerHTML = "";
         } else {
+            equal()
             screenUpside.innerHTML = screenDownside.innerHTML + " " + e.target.innerHTML;
             screenDownside.innerHTML = "";
         }
     } else if (e.target.classList.contains("num")) {
         screenDownside.innerHTML += e.target.innerHTML;
+        // if (e.target.innerHTML == "." && !screenDownside.innerHTML) {
+        //     screenDownside.innerHTML = e.target.innerHTML;
+        // } else {
+        //     screenDownside.innerHTML += e.target.innerHTML;
 
+        // }
+        // else if (e.target.innerHTML != 0 && e.target.innerHTML > 0) {
+        //     screenDownside.innerHTML += e.target.innerHTML;
+        // }
+        // else {
+        //     screenDownside.innerHTML = e.target.innerHTML;
+        // }
     } else if (e.target.classList.contains("equal")) {
         equal();
     }
